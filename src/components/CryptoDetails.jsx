@@ -15,12 +15,12 @@ const CryptoDetails = () => {
   const { coinId } = useParams(); // useParams takes the Id in the url and allows you to use it as a variable.
   const [timePeriod, setTimePeriod] = useState('7d');
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
-	const { data: coinHistory} = useGetCryptoDetailsQuery({ coinId, timePeriod });
+	const { data: coinHistory} = useGetCryptoHistoryQuery({ coinId, timePeriod });
   const cryptoDetails = data?.data?.coin;
 
-  const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
+  if(isFetching) return 'Loading...';
 
-  if (isFetching) return 'Loading...';
+  const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
   const stats = [
     { title: 'Price to USD', value: `$ ${cryptoDetails.price && millify(Number(cryptoDetails.price))}`, icon: <DollarCircleOutlined /> },
@@ -58,7 +58,7 @@ const CryptoDetails = () => {
         >
           {time.map((date) => <Option key={date}>{date}</Option>)}
       </Select>
-      <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name} />
+      {/* <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name} /> */}
       <Col className='stats-container'>
         <Col className='coin-value-statistics'>
           <Col className='coin-value=statistics-heading'>
