@@ -1,6 +1,7 @@
 # Cryptoverse
 
-A crypto industry app built with React, Redux and Ant Design
+A crypto industry app built with React, Redux and Ant Design.
+<br />
 [Live Preview](https://nickmagidson.github.io/crypto-app/)
 
 ## Description
