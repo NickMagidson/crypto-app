@@ -58,7 +58,7 @@ const CryptoDetails = () => {
         >
           {time.map((date) => <Option key={date}>{date}</Option>)}
       </Select>
-      {/* <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name} /> */}
+      <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name} />
       <Col className='stats-container'>
         <Col className='coin-value-statistics'>
           <Col className='coin-value=statistics-heading'>
@@ -115,7 +115,7 @@ const CryptoDetails = () => {
 							<Title level={5} className='link-name'>
 								{link.type}
 							</Title>
-							<a href={link.url} target='_blank' rel='norefer'>
+							<a href={link.url} target='_blank' rel='noreferrer'>
 								{link.name}
 							</a>
 						</Row>
